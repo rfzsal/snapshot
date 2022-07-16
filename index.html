@@ -372,10 +372,12 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
   const params = new URLSearchParams(location.search);
   
   const name = params.get('name');
-  const uppercaseName = `${name[0].toUpperCase()}${name.slice(1)}`;
+  const uppercaseName = name ? `${name[0].toUpperCase()}${name.slice(1)}` : null;
   document.getElementById('user-data').innerText = uppercaseName;
 
-  MicroModal.show('modal-1', { awaitCloseAnimation: true });
+  if (name) {
+    MicroModal.show('modal-1', { awaitCloseAnimation: true });
+  }
 </script>
 
 </body>
